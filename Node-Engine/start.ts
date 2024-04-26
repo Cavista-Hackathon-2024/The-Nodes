@@ -5,8 +5,9 @@ import config from './Config/config';
 import { authRouter } from './Resources/Auth/auth.router';
 import { Cors } from './Config/cors';
 import { transactionRouter } from './Resources/Transactions/transaction.router';
+import { generateRouter } from './Resources/Generate/generate.router';
 
-const CavistaNode: Express = express();
+export const CavistaNode: Express = express();
 const rettyCors = new Cors;
 
 CavistaNode.use(express.json());
@@ -15,6 +16,7 @@ CavistaNode.use(cors(rettyCors.corsOptions))
 
 CavistaNode.use('/api/v1/auth', authRouter)
 CavistaNode.use('/api/v1/app/transactions', transactionRouter)
+CavistaNode.use('/api/v1/ai', generateRouter)
 
 CavistaNode.use((req: Request, res: Response, next: NextFunction) => {
     return res.status(404).json({ message: 'This Request does not sit with Retty API' });

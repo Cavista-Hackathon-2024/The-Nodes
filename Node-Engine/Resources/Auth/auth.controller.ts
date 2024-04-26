@@ -85,7 +85,8 @@ export class AuthController {
                     status: 400
                 })
             }
-            const token = await tokenService.generateAccessToken({ id: user._id });
+            const userId = user._id as unknown as string
+            const token = await tokenService.generateAccessToken({ userId: userId, email: user.email });
             const userData = {
                 email: user.email,
                 firstName: user.firstName,
