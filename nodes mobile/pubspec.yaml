@@ -24,9 +24,10 @@ flutter:
   uses-material-design: true
   generate: true
 
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+    - assets/images/
+    - assets/icons/
+    - assets/
   # example:
   # fonts:
   #   - family: Schyler
