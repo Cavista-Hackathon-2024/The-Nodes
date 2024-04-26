@@ -196,4 +196,43 @@ export class CommunityController {
             })
         }
     }
+
+    public async GetAllCommunities(req: Request, res: Response) {
+        try {
+            const communities = await CommunityModel.find()
+            return res.status(200).json({
+                status: 200,
+                message: "",
+                data: communities
+            })
+        } catch (error) {
+            return res.status(500).json({
+                status: 500,
+                message: "Internal Server Error!"
+            })
+        }
+    }
+
+    public async GetCommunity(req: Request, res: Response) {
+        try {
+            const { communityId } = req.params
+            const community = await CommunityModel.findOne({ communityId: communityId })
+            if (!community) {
+                return res.status(500).json({
+                    status: 500,
+                    message: "Community not found!"
+                })
+            }
+            return res.status(200).json({
+                status: 200,
+                message: "",
+                data: community
+            })
+        } catch (error) {
+            return res.status(500).json({
+                status: 500,
+                message: "Internal Server Error!"
+            })
+        }
+    }
 }

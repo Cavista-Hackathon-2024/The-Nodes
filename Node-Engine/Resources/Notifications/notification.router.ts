@@ -1,8 +1,12 @@
 import { Router, Request, Response } from "express";
 import { NotificationController } from "./notification.controller";
+import { Authenticator } from "../../Config/authenticator";
 
 export const notificationRouter = Router()
 const notificationController = new NotificationController
+const authenticator = new Authenticator
+
+
 
 notificationRouter.get('/', (req: Request, res: Response) => {
     return res.status(200).json({
@@ -11,8 +15,8 @@ notificationRouter.get('/', (req: Request, res: Response) => {
     })
 })
 
-notificationRouter.post('/create', notificationController.CreateNotification)
-notificationRouter.post('/get/:id', notificationController.GetNotification)
-notificationRouter.post('/get', notificationController.GetAllNotifications)
-notificationRouter.post('/read/:id', notificationController.MarkNotificationAsRead)
-notificationRouter.post('/read', notificationController.MarkAllAsRead)
+notificationRouter.post('/create', authenticator.isLoggedIn, notificationController.CreateNotification)
+notificationRouter.post('/get/:id', authenticator.isLoggedIn, notificationController.GetNotification)
+notificationRouter.post('/get', authenticator.isLoggedIn, notificationController.GetAllNotifications)
+notificationRouter.post('/read/:id', authenticator.isLoggedIn, notificationController.MarkNotificationAsRead)
+notificationRouter.post('/read', authenticator.isLoggedIn, notificationController.MarkAllAsRead)
