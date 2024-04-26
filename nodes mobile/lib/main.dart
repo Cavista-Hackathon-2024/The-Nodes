@@ -1,8 +1,11 @@
+// ignore_for_file: implementation_imports, depend_on_referenced_packages
+
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/src/material_localizations.dart';
 import 'package:flutter_localizations/src/cupertino_localizations.dart';
 import 'package:the_nodes_heathcare/l10n/l10n.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:the_nodes_heathcare/src/features/dashboard/dash_board.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'The Nodes',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
@@ -42,10 +45,30 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   @override
+  void initState() {
+    Future.delayed(const Duration(seconds: 5), () {
+      Navigator.pushReplacement(
+          context, 
+          MaterialPageRoute(builder: (context) => const HomeScreen())
+      );
+    });
+    super.initState();
+  }
+  @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    
+    return  Scaffold(
+      backgroundColor: Colors.black,
         body: Center(
-      child: Text('Kushimo Bashir'),
+      child: Text(
+        AppLocalizations.of(context)!.language,
+        style: const TextStyle(
+          color: Colors.white,
+          fontSize: 30,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
     ));
   }
 }
+
