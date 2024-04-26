@@ -43,6 +43,12 @@ export const config = Object.freeze({
     host: process.env.REDIS_HOST,
     ttl: parseInt(process.env.REDIS_TTL!),
   },
+  ai: {
+    gemini: {
+      apiKey: process.env.GEMINI_KEY as string,
+      apiSecret: process.env.GEMINI_API_SECRET as string,
+    },
+  },
   db: {
     mongodb: {
       MONGO_URL: process.env.MONGODB_URL as string,

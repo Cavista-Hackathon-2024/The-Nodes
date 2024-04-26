@@ -1,8 +1,13 @@
 import jwt from 'jsonwebtoken';
 import config from './config';
 
+interface IPayload {
+    userId: string;
+    email: string;
+}
+
 export class TokenService {
-    public async generateAccessToken(payload: any) {
+    public async generateAccessToken(payload: IPayload) {
         try {
             const token = jwt.sign(payload, config.auth.accessTokenSecret, { expiresIn: config.auth.accessTokenExpiresIn });
             return token
