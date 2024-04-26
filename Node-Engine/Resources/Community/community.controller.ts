@@ -8,7 +8,7 @@ const tokenService = new TokenService
 
 
 export class CommunityController {
-    public async CreateCommunity (req: Request, res: Response) {
+    public async CreateCommunity(req: Request, res: Response) {
         try {
             const data = req.body
             const ValidatedBody = await communityValidator.ValidateCommunityCreation(data)
@@ -35,7 +35,7 @@ export class CommunityController {
                 name: savedCommunity.name
             }
             return res.status(201).json({
-                status: 400,
+                status: 201,
                 message: "Community Created Successfully!",
                 data: newCommunityData
             })
@@ -46,15 +46,71 @@ export class CommunityController {
             })
         }
     }
-    public async JoinCommunity (req: Request, res: Response) {
+    public async JoinCommunity(req: any, res: Response) {
         try {
-            
+            const { communityId } = req.params
+            const userId = req.user.userId
+            return res.status(201).json({
+                status: 200,
+                message: "",
+            })
         } catch (error) {
-            
+            return res.status(500).json({
+                status: 500,
+                message: "Internal Server Error!"
+            })
         }
     }
-    public async LeaveCommunity (req: Request, res: Response) {}
-    public async EditCommunity (req: Request, res: Response) {}
-    public async GetAllMembersOfCommunity (req: Request, res: Response) {}
-    public async GetAMemberOfCommunity (req: Request, res: Response) {}
+    public async LeaveCommunity(req: Request, res: Response) {
+        try {
+            return res.status(201).json({
+                status: 200,
+                message: "",
+            })
+        } catch (error) {
+            return res.status(500).json({
+                status: 500,
+                message: "Internal Server Error!"
+            })
+        }
+    }
+    public async EditCommunity(req: Request, res: Response) {
+        try {
+            return res.status(201).json({
+                status: 200,
+                message: "",
+            })
+        } catch (error) {
+            return res.status(500).json({
+                status: 500,
+                message: "Internal Server Error!"
+            })
+        }
+    }
+    public async GetAllMembersOfCommunity(req: Request, res: Response) {
+        try {
+            return res.status(201).json({
+                status: 200,
+                message: "",
+            })
+        } catch (error) {
+            return res.status(500).json({
+                status: 500,
+                message: "Internal Server Error!"
+            })
+        }
+    }
+    public async GetAMemberOfCommunity(req: Request, res: Response) {
+        try {
+            return res.status(201).json({
+                status: 200,
+                message: "",
+            })
+        } catch (error) {
+            return res.status(500).json({
+                status: 500,
+                message: "Internal Server Error!"
+            })
+        }
+    }
 }

@@ -8,9 +8,7 @@ interface IRequest extends Request {
 export class Authenticator {
     public isLoggedIn(req: IRequest, res: Response, next:NextFunction) {
         if (req.isAuthenticated()) {
-            return next()
         }
-        res.status(401).send('You must be logged in to access this route')
     }
 
     public isNotLoggedIn(req: IRequest, res: Response, next:NextFunction) {
