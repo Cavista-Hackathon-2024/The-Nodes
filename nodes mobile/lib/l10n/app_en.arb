@@ -1,0 +1,10 @@
+{
+    "@@locale": "en",
+
+    "language": "English",
+    "@language":{
+        "description": "This is the English version of the page"
+    } ,
+    "name": "John"
+
+}
