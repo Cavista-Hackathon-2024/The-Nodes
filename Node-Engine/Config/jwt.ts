@@ -28,4 +28,13 @@ export class TokenService {
             return error
         }
     }
+
+    public async generateRandomCommunityID() {
+        try {
+            const Id = Math.floor(100000 + Math.random() * 900000);
+            return Id
+        } catch (error) {
+            return error
+        }
+    }
 }
