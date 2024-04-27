@@ -18,8 +18,7 @@ class TextInputField extends StatelessWidget {
       this.nextFocusNode,
       this.onTap,
       this.readOnly,
-      this.onChanged
-      });
+      this.onChanged});
   final TextEditingController controller;
   final String hintText;
   final TextInputType? inputType;
@@ -43,47 +42,49 @@ class TextInputField extends StatelessWidget {
       children: [
         TextFormField(
           readOnly: readOnly ?? false,
-            textAlignVertical: TextAlignVertical.center,
-            obscureText: obscureText ?? false,
-            controller: controller,
-            style: const TextStyle(color: Color(0xFFFFFFFF)),
-            keyboardType: inputType,
-            cursorColor: const Color(0xFFFFFFFF),
-            
-            decoration: InputDecoration(
-              // contentPadding: const EdgeInsets.only(bottom: -10),
-              suffixIconConstraints: const BoxConstraints(maxHeight: 14),
-              border: const OutlineInputBorder(
-                borderSide: BorderSide(color: Color(0xFF787F85)), // ),
-              ),
-              focusedBorder: UnderlineInputBorder(
-                  borderSide:
-                      BorderSide(color: Theme.of(context).primaryColor)),
-              enabledBorder: const OutlineInputBorder(
-                borderSide: BorderSide(color: Color(0xFF787F85)),
-              ),
-              errorText: null,
-              hintText: hintText,
-              hintStyle: const TextStyle(color: Color(0xFF787F85)),
-              labelText: labelText,
-              suffixIcon: Padding(
-                padding: const EdgeInsets.only(bottom: 0),
-                child: suffix,
-              ),
+          textAlignVertical: TextAlignVertical.center,
+          obscureText: obscureText ?? false,
+          controller: controller,
+          style: const TextStyle(color: Color(0xFF000000)),
+          keyboardType: inputType,
+          cursorColor: const Color(0xFF000000),
+          decoration: InputDecoration(
+            constraints: BoxConstraints(maxHeight: 55),
+            // contentPadding: const EdgeInsets.only(bottom: -10),
+            suffixIconConstraints: const BoxConstraints(maxHeight: 14),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(20),
+              borderSide: BorderSide(color: Color(0xFF787F85)), // ),
             ),
-            focusNode: focusNode,
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return validator;
-              }
-              return null;
-            },
-            onEditingComplete: () {
-              FocusScope.of(context).requestFocus(nextFocusNode);
-            },
-            onTap: onTap,
-            onChanged: onChanged,
+            focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(20),
+                borderSide: BorderSide(color: Theme.of(context).primaryColor)),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(20),
+              borderSide: BorderSide(color: Color(0xFF787F85)),
             ),
+            errorText: null,
+            hintText: hintText,
+            hintStyle: const TextStyle(color: Color(0xFF787F85)),
+            labelText: labelText,
+            suffixIcon: Padding(
+              padding: const EdgeInsets.only(left: 5, right: 10, bottom: 10),
+              child: suffix,
+            ),
+          ),
+          focusNode: focusNode,
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return validator;
+            }
+            return null;
+          },
+          onEditingComplete: () {
+            FocusScope.of(context).requestFocus(nextFocusNode);
+          },
+          onTap: onTap,
+          onChanged: onChanged,
+        ),
       ],
     );
   }

@@ -15,6 +15,7 @@ dependencies:
   flutter_localization: ^0.2.0
   intl: ^0.18.1
   flutter_riverpod: ^2.5.1
+  flutter_svg: ^2.0.10+1
 
 dev_dependencies:
   flutter_test:

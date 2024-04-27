@@ -1,5 +1,13 @@
 {
     "@@locale": "yo",
 
-    "language": "Èdè"
+    "language": "Èdè",
+    "onboardtxt1":"Kọna pẹlu awọn ẹgbẹ ti ń ṣe iṣẹ ilé-iṣẹ.",
+    "onboardtxt2":"ọwọ lo awọn ẹgbẹ ti ń ṣe ẹrọ alágbè kan tó bá ń wá ẹkọ ifọwọṣọ, fi ń gbọ́ kírẹ́rẹ́, àti kọna pẹlu awọn ènìyàn tó bá wọlé lórí ayélujára ti wọn ní àgbáyé àjọṣepọ̀ àìsán tí wọn.",
+    "onboardtxt11":"Access Reliable Medical Feedback",
+    "onboardtxt12":"Get personalized feedback and recommendations by answering health questions. Our AI ensures accurate guidance for your unique health needs.",
+    "onboardtxt22": "Explore AI-Powered Diagnostics",
+    "onboardtxt13": "Experience AI diagnostics for early detection and personalized treatment plans. Our technology ensures precision in your healthcare journey."
+
+
 }

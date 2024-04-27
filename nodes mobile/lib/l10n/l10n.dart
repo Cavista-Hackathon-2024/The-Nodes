@@ -6,7 +6,8 @@ class L10n{
   static final supportedLocales = [
     Locale('en'),
     Locale('fr'),
-    Locale('ar'),
+    Locale('ig'),
+    Locale('yo'),
 
   ];
 }
