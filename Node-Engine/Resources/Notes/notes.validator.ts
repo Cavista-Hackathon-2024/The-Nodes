@@ -5,7 +5,7 @@ export class NotesValidator {
     public async ValidateNoteCreation(data: any) {
         const schema = Joi.object({
             title: Joi.string().required(),
-            content: Joi.string().required()
+            content: Joi.string().required(),
         });
         return schema.validate(data);
     }
@@ -27,7 +27,7 @@ export class NotesValidator {
 
     public async ValidateNoteRetrieval(data: any) {
         const schema = Joi.object({
-            userId: Joi.string().required()
+            user: Joi.string().required()
         });
         return schema.validate(data);
     }

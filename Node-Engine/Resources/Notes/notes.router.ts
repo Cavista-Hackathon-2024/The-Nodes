@@ -9,5 +9,5 @@ const authenticator = new Authenticator
 
 export const notesRouter = Router();
 
-notesRouter.post('/create', authenticator.isLoggedIn, notesController.CreateANote);
+notesRouter.post('/add', authenticator.isLoggedIn, notesController.CreateANote);
 notesRouter.get('/all', authenticator.isLoggedIn, notesController.GetAllNotes);

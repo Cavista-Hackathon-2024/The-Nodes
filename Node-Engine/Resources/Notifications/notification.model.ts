@@ -9,4 +9,4 @@ const notificationSchema: Schema = new Schema ({
     updatedAt: { type: Date, default: Date.now }
 })
 
-export const Notification: Model<any> = model('Notifications', notificationSchema)
+export const Notification = model('Notifications', notificationSchema)

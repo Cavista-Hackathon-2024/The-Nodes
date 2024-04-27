@@ -1,16 +1,16 @@
 import { Router } from 'express';
 import { AuthController } from './auth.controller';
 import { Authenticator } from '../../Config/authenticator';
-import { upload } from '../Generate/upload';
-import { analyzeImagesWithGeminiProVision } from '../Generate/model';
 import { Request, Response } from 'express';
 
 export const authRouter = Router();
 const authController = new AuthController();
 const authenticator = new Authenticator();
 
-authRouter.get('/ping', (req, res) => {
-    res.send('pong');
+authRouter.get('/ping', (req: Request, res: Response) => {
+    res.status(200).json({
+        message: "Welcome To The Nodes"
+    })
 });
 
 authRouter.post('/register', authController.Register);
