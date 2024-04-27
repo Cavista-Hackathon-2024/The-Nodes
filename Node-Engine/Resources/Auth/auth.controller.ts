@@ -4,6 +4,7 @@ import { AuthValidator } from './auth.validator';
 import { UserModel } from './auth.model';
 import { Hasher } from '../../Config/hasher';
 import { TokenService } from '../../Config/jwt';
+import { generateRandomCoordinatesWithLocation } from '../Profile/location.random';
 
 const authService = new AuthService();
 const authValidator = new AuthValidator();
@@ -32,12 +33,14 @@ export class AuthController {
             const hashedPassword = await hasher.HashData(password);
             // const otp = await tokenService.generateOTP();
             // const otpExpiresInForUser = Date.now() + 600000; // 10 minutes
+            const generatedLocation = await generateRandomCoordinatesWithLocation(data.location)
             const newUser = new UserModel({
                 email: data.email,
                 password: hashedPassword,
                 firstName: data.firstName,
                 lastName: data.lastName,
                 location: data.location,
+                locationCoordinates: generatedLocation,
                 phone: data.phone,
                 // otp: otp,
                 // otpExpiresIn: otpExpiresInForUser

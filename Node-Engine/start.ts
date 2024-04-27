@@ -29,7 +29,7 @@ CavistaNode.use('/api/v1/app/communities', communityRouter)
 CavistaNode.use('/api/v1/app/hospitals', hospitalRouter)
 CavistaNode.use('/api/v1/app/messaging', messagingRouter)
 CavistaNode.use('/api/v1/app/notifications', notificationRouter)
-CavistaNode.use('/api/v1/app/details', profileRouter)
+CavistaNode.use('/api/v1/app/profile', profileRouter)
 CavistaNode.use('/api/v1/app/diseases', diseaseRouter)
 CavistaNode.use('/api/v1/ai', generateRouter)
 
