@@ -12,9 +12,9 @@ communityRouter.post('/ping', (req, res) => {
 
 communityRouter.post('/create', authenticator.isLoggedIn, communityController.CreateCommunity);
 communityRouter.post('/join/:communityId', authenticator.isLoggedIn, communityController.JoinCommunity);
-communityRouter.post('/members/all', authenticator.isLoggedIn, communityController.GetAllMembersOfCommunity);
-communityRouter.post('/members/one/:communityId', authenticator.isLoggedIn, communityController.GetAMemberOfCommunity);
+communityRouter.get('/members/all/:communityId', authenticator.isLoggedIn, communityController.GetAllMembersOfCommunity);
+communityRouter.get('/members/one/:communityId/:userId', authenticator.isLoggedIn, communityController.GetAMemberOfCommunity);
 communityRouter.post('/leave/:communityId', authenticator.isLoggedIn, communityController.LeaveCommunity);
 communityRouter.post('/edit/:communityId', authenticator.isLoggedIn, communityController.EditCommunity);
-communityRouter.post('/all', authenticator.isLoggedIn, communityController.GetAllCommunities);
-communityRouter.post('/one/:communityId', authenticator.isLoggedIn, communityController.GetCommunity);
+communityRouter.get('/all', authenticator.isLoggedIn, communityController.GetAllCommunities);
+communityRouter.get('/one/:communityId', authenticator.isLoggedIn, communityController.GetCommunity);

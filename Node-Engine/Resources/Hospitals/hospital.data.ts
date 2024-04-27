@@ -3,7 +3,7 @@ export const hospitals = [
       hospitalId: "1",
       name: "RareCare Hospital",
       location: "New York, USA",
-      specialties: ["Rare Diseases", "Genetic Disorders"],
+      specialties: "Genetic Disorders",
       doctors: [
         { name: "Dr. John Smith", specialization: "Rare Diseases" },
         { name: "Dr. Emily Johnson", specialization: "Genetic Disorders" },
@@ -19,7 +19,7 @@ export const hospitals = [
       hospitalId: "2",
       name: "Hope Clinic",
       location: "London, UK",
-      specialties: ["Rare Diseases", "Autoimmune Disorders"],
+      specialties: "Autoimmune Disorders",
       doctors: [
         { name: "Dr. Michael Brown", specialization: "Rare Diseases" },
         { name: "Dr. Sarah Lee", specialization: "Autoimmune Disorders" },
@@ -35,7 +35,7 @@ export const hospitals = [
       hospitalId: "3",
       name: "HealWell Hospital",
       location: "Mumbai, India",
-      specialties: ["Cardiology", "Neurology"],
+      specialties: "Cardiology",
       doctors: [
         { name: "Dr. Ravi Patel", specialization: "Cardiology" },
         { name: "Dr. Priya Shah", specialization: "Neurology" },
@@ -51,7 +51,7 @@ export const hospitals = [
       hospitalId: "4",
       name: "GreenLife Hospital",
       location: "Sydney, Australia",
-      specialties: ["Oncology", "Orthopedics"],
+      specialties: "Oncology",
       doctors: [
         { name: "Dr. James Wilson", specialization: "Oncology" },
         { name: "Dr. Emma White", specialization: "Orthopedics" },
@@ -67,7 +67,7 @@ export const hospitals = [
       hospitalId: "5",
       name: "Sunrise Hospital",
       location: "Cape Town, South Africa",
-      specialties: ["Pediatrics", "Gynecology"],
+      specialties: "Pediatrics",
       doctors: [
         { name: "Dr. Sipho Ndlovu", specialization: "Pediatrics" },
         { name: "Dr. Aisha Mohamed", specialization: "Gynecology" },
