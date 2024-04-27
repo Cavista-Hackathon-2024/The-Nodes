@@ -5,6 +5,7 @@ const userSchema = new Schema({
     lastName: { type: String, required: true },
     password: { type: String, required: true },
     email: { type: String, required: true },
+    locationCoordinates: { type: [Number], required: true },
     location: { type: String, required: true },
     phone: { type: String, required: true },
     otp: { type: String, default: null },
