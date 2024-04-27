@@ -33,7 +33,8 @@ export class CommunityController {
             })
             const savedCommunity = await newCommunity.save()
             const newCommunityData = {
-                name: savedCommunity.name
+                name: savedCommunity.name,
+                communityId: savedCommunity.communityId
             }
             return res.status(201).json({
                 status: 201,
@@ -69,7 +70,7 @@ export class CommunityController {
             await community.save()
             return res.status(201).json({
                 status: 200,
-                message: "",
+                message: "You have successfully joined the community",
             })
         } catch (error) {
             return res.status(500).json({
@@ -101,7 +102,7 @@ export class CommunityController {
             await community.save()
             return res.status(201).json({
                 status: 200,
-                message: "",
+                message: "You have successfully left the community",
             })
         } catch (error) {
             return res.status(500).json({
@@ -143,7 +144,7 @@ export class CommunityController {
     }
     public async GetAllMembersOfCommunity(req: Request, res: Response) {
         try {
-            const { communityId } = req.body
+            const { communityId } = req.params
             const community = await CommunityModel.findOne({ communityId: communityId })
             if (!community) {
                 return res.status(500).json({
@@ -152,7 +153,19 @@ export class CommunityController {
                 })
             }
             const members = community.members
-            const memberDetails = await UserModel.find({ userId: { $in: members } })
+            if (!members || members.length === 0) {
+                return res.status(404).json({
+                    status: 404,
+                    message: "No members found!"
+                })
+            }
+            const memberDetails = await UserModel.find({ _id: { $in: members } })
+            if (!memberDetails) {
+                return res.status(404).json({
+                    status: 404,
+                    message: "Members Are not users!"
+                })
+            }
             return res.status(200).json({
                 status: 200,
                 message: "",
@@ -167,8 +180,7 @@ export class CommunityController {
     }
     public async GetAMemberOfCommunity(req: Request, res: Response) {
         try {
-            const { communityId } = req.params
-            const { userId } = req.body
+            const { communityId, userId } = req.params
             const community = await CommunityModel.findOne({ communityId: communityId })
             if (!community) {
                 return res.status(500).json({
@@ -183,7 +195,7 @@ export class CommunityController {
                     message: "User is not a member of this community!"
                 })
             }
-            const memberDetails = await UserModel.findOne({ userId: userId })
+            const memberDetails = await UserModel.findOne({ _id: userId })
             return res.status(200).json({
                 status: 200,
                 message: "",
@@ -223,10 +235,19 @@ export class CommunityController {
                     message: "Community not found!"
                 })
             }
+            const members = community.members
+            const memberDetails = await UserModel.find({ _id: { $in: members } })
+            if (!memberDetails) {
+                return res.status(404).json({
+                    status: 404,
+                    message: "Members Are not users!"
+                })
+            }
             return res.status(200).json({
                 status: 200,
                 message: "",
-                data: community
+                data: community,
+                members: memberDetails
             })
         } catch (error) {
             return res.status(500).json({
