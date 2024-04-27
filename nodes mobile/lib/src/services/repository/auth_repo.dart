@@ -6,7 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:the_nodes_heathcare/src/features/authentication/signin/presentation/sign_in.dart';
 import 'package:the_nodes_heathcare/src/features/authentication/signup/data/signup_model.dart';
+import 'package:the_nodes_heathcare/src/features/dashboard/dash_board.dart';
 import 'package:the_nodes_heathcare/src/features/dashboard/data/hospitials_model.dart';
+import 'package:the_nodes_heathcare/src/features/dashboard/home_screen.dart';
 import 'package:the_nodes_heathcare/src/services/repository/auth_base.dart';
 
 import '../api_service.dart';
@@ -63,7 +65,7 @@ class AuthRespository extends ChangeNotifier implements AuthBase {
         final response = RegistrationResponse.fromJson(data);
         if (response.status == 201) {
           Navigator.pushReplacement(context,
-              MaterialPageRoute(builder: (context) => const SigninScreen()));
+              MaterialPageRoute(builder: (context) => const HomeScreen()));
         }
       }
     } catch (e) {

@@ -126,13 +126,13 @@ class _OnboardCustomState extends State<OnboardCustom> {
   Widget build(BuildContext context) {
     return Stack(fit: StackFit.expand, children: [
       Container(
-        alignment: Alignment.center,
+        // alignment: Alignment.center,
         decoration: BoxDecoration(
           image: DecorationImage(
               image: AssetImage(
                 widget.image!,
               ),
-              fit: BoxFit.fitWidth),
+              fit: BoxFit.cover),
         ),
       ),
       Align(

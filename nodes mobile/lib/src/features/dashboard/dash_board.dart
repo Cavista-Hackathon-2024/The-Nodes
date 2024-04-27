@@ -25,59 +25,61 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        extendBodyBehindAppBar: true,
-        body: IndexedStack(
-          index: _selectedIndex,
-          children:  [
-           DashBoardScreen(),
-            CommunutiyScreen(),
-            ChatScreen(),
-            Scaffold(),
-          ],
-        ),
-        bottomNavigationBar: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          showUnselectedLabels: true,
-
-          selectedItemColor: const Color(0xFF04B6F7),
-          // selectedIconTheme: const IconThemeData(color: Color(0xFFFFE974)),
-          unselectedItemColor: const Color(0xFFBABABA),
-          items: [
-            BottomNavigationBarItem(
-                icon: Icon(Icons.dashboard_rounded,
-                    size: 24,
-                    color: _selectedIndex == 0
+    return MaterialApp(
+      home: Scaffold(
+          extendBodyBehindAppBar: true,
+          body: IndexedStack(
+            index: _selectedIndex,
+            children:  [
+             DashBoardScreen(),
+              CommunutiyScreen(),
+              ChatScreen(),
+              Scaffold(),
+            ],
+          ),
+          bottomNavigationBar: BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
+            showUnselectedLabels: true,
+      
+            selectedItemColor: const Color(0xFF04B6F7),
+            // selectedIconTheme: const IconThemeData(color: Color(0xFFFFE974)),
+            unselectedItemColor: const Color(0xFFBABABA),
+            items: [
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.dashboard_rounded,
+                      size: 24,
+                      color: _selectedIndex == 0
+                          ? Color(0xFF04B6F7)
+                          : Color(0XFFBABABA)),
+                  label: 'Dashboard'),
+              BottomNavigationBarItem(
+                  icon: SvgPicture.asset(
+                    'assets/icons/people.svg',
+                    color: _selectedIndex == 1
                         ? Color(0xFF04B6F7)
-                        : Color(0XFFBABABA)),
-                label: 'Dashboard'),
-            BottomNavigationBarItem(
-                icon: SvgPicture.asset(
-                  'assets/icons/people.svg',
-                  color: _selectedIndex == 1
-                      ? Color(0xFF04B6F7)
-                      : Color(0XFFBABABA),
-                ),
-                label: 'Community'),
-            BottomNavigationBarItem(
-                icon: SvgPicture.asset(
-                  'assets/icons/message.svg',
-                  color: _selectedIndex == 2
-                      ? Color(0xFF04B6F7)
-                      : Color(0XFFBABABA),
-                ),
-                label: 'Chat'),
-            BottomNavigationBarItem(
-                icon: SvgPicture.asset(
-                  'assets/icons/profile.svg',
-                  color: _selectedIndex == 3
-                      ? Color(0xFF04B6F7)
-                      : Color(0XFFBABABA),
-                ),
-                label: 'Profile'),
-          ],
-          currentIndex: _selectedIndex,
-          onTap: _onItemTapped,
-        ));
+                        : Color(0XFFBABABA),
+                  ),
+                  label: 'Community'),
+              BottomNavigationBarItem(
+                  icon: SvgPicture.asset(
+                    'assets/icons/message.svg',
+                    color: _selectedIndex == 2
+                        ? Color(0xFF04B6F7)
+                        : Color(0XFFBABABA),
+                  ),
+                  label: 'Chat'),
+              BottomNavigationBarItem(
+                  icon: SvgPicture.asset(
+                    'assets/icons/profile.svg',
+                    color: _selectedIndex == 3
+                        ? Color(0xFF04B6F7)
+                        : Color(0XFFBABABA),
+                  ),
+                  label: 'Profile'),
+            ],
+            currentIndex: _selectedIndex,
+            onTap: _onItemTapped,
+          )),
+    );
   }
 }
