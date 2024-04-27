@@ -4,6 +4,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'package:flutter/material.dart';
 import 'package:the_nodes_heathcare/src/component/btn.dart';
+import 'package:the_nodes_heathcare/src/features/authentication/signup/presentation/sign_up.dart';
 
 int _currentPage = 0;
 final PageController _pageController = PageController();
@@ -82,6 +83,12 @@ class _GenOnboardState extends State<GenOnboard> {
                           duration: Duration(milliseconds: 300),
                           curve: Curves.easeInOut,
                         );
+                      }
+                      if (_currentPage == 2) {
+                        Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(builder: (context) {
+                          return SignupScreen();
+                        }));
                       }
                     },
                     btnTxt: 'Next'),

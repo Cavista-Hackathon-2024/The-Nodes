@@ -3,14 +3,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/src/material_localizations.dart';
 import 'package:flutter_localizations/src/cupertino_localizations.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:the_nodes_heathcare/l10n/l10n.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:the_nodes_heathcare/src/features/authentication/signin/presentation/sign_in.dart';
 import 'package:the_nodes_heathcare/src/features/authentication/signup/presentation/sign_up.dart';
+import 'package:the_nodes_heathcare/src/features/dashboard/dash_board.dart';
 import 'package:the_nodes_heathcare/src/features/onboarding/presentation/widget/onboard1.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ProviderScope(child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -31,7 +33,7 @@ class MyApp extends StatelessWidget {
           GlobalMaterialLocalizations.delegate,
           GlobalCupertinoLocalizations.delegate,
         ],
-        home: const SigninScreen());
+        home: const OnboardingScreen());
   }
 }
 
@@ -43,16 +45,16 @@ class OnboardingScreen extends StatefulWidget {
 }
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
-  // @override
-  // void initState() {
-  //   Future.delayed(const Duration(seconds: 5), () {
-  //     Navigator.pushReplacement(
-  //         context,
-  //         MaterialPageRoute(builder: (context) => const HomeScreen())
-  //     );
-  //   });
-  //   super.initState();
-  // }
+  @override
+  void initState() {
+    Future.delayed(const Duration(seconds: 5), () {
+      Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const GenOnboard())
+      );
+    });
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(

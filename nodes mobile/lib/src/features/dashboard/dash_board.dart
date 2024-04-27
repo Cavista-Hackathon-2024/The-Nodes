@@ -2,6 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:the_nodes_heathcare/src/features/dashboard/chat.dart';
+import 'package:the_nodes_heathcare/src/features/dashboard/coummunity.dart';
+import 'package:the_nodes_heathcare/src/features/dashboard/home_screen.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
@@ -25,59 +29,50 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         extendBodyBehindAppBar: true,
         body: IndexedStack(
           index: _selectedIndex,
-          children: const [
-            Scaffold(),
-            Scaffold(),
-            Scaffold(),
+          children:  [
+           DashBoardScreen(),
+            CommunutiyScreen(),
+            ChatScreen(),
             Scaffold(),
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           showUnselectedLabels: true,
-          // fixedColor: const Color(0xFFFFE974),
-          backgroundColor: Color(0XFF121212),
-          selectedItemColor: const Color(0xFFFFE974),
+
+          selectedItemColor: const Color(0xFF04B6F7),
           // selectedIconTheme: const IconThemeData(color: Color(0xFFFFE974)),
-          unselectedItemColor: const Color(0xFF8E9094),
+          unselectedItemColor: const Color(0xFFBABABA),
           items: [
             BottomNavigationBarItem(
-                icon: Icon(Icons.home_rounded,
-                    size: 20,
+                icon: Icon(Icons.dashboard_rounded,
+                    size: 24,
                     color: _selectedIndex == 0
-                        ? Color(0xFFFFE974)
-                        : Color(0XFF8E9094)),
-                label: 'Home'),
+                        ? Color(0xFF04B6F7)
+                        : Color(0XFFBABABA)),
+                label: 'Dashboard'),
             BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.home,
+                icon: SvgPicture.asset(
+                  'assets/icons/people.svg',
                   color: _selectedIndex == 1
-                      ? Color(0xFFFFE974)
-                      : Color(0XFF8E9094),
+                      ? Color(0xFF04B6F7)
+                      : Color(0XFFBABABA),
                 ),
-                label: 'Live TV'),
+                label: 'Community'),
             BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.home,
+                icon: SvgPicture.asset(
+                  'assets/icons/message.svg',
                   color: _selectedIndex == 2
-                      ? Color(0xFFFFE974)
-                      : Color(0XFF8E9094),
+                      ? Color(0xFF04B6F7)
+                      : Color(0XFFBABABA),
                 ),
-                label: 'Discover'),
+                label: 'Chat'),
             BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.home,
+                icon: SvgPicture.asset(
+                  'assets/icons/profile.svg',
                   color: _selectedIndex == 3
-                      ? Color(0xFFFFE974)
-                      : Color(0XFF8E9094),
-                ),
-                label: 'Library'),
-            BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.home,
-                  color: _selectedIndex == 4
-                      ? Color(0xFFFFE974)
-                      : Color(0XFF8E9094),
+                      ? Color(0xFF04B6F7)
+                      : Color(0XFFBABABA),
                 ),
                 label: 'Profile'),
           ],
