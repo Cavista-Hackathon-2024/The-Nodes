@@ -15,8 +15,7 @@ notificationRouter.get('/', (req: Request, res: Response) => {
     })
 })
 
-notificationRouter.post('/create', authenticator.isLoggedIn, notificationController.CreateNotification)
-notificationRouter.post('/get/:id', authenticator.isLoggedIn, notificationController.GetNotification)
+notificationRouter.post('/get/:notificationId', authenticator.isLoggedIn, notificationController.GetNotification)
 notificationRouter.post('/get', authenticator.isLoggedIn, notificationController.GetAllNotifications)
-notificationRouter.post('/read/:id', authenticator.isLoggedIn, notificationController.MarkNotificationAsRead)
+notificationRouter.post('/read/:notificationId', authenticator.isLoggedIn, notificationController.MarkNotificationAsRead)
 notificationRouter.post('/read', authenticator.isLoggedIn, notificationController.MarkAllAsRead)
