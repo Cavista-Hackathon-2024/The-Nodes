@@ -15,7 +15,7 @@ notificationRouter.get('/', (req: Request, res: Response) => {
     })
 })
 
-notificationRouter.post('/get/:notificationId', authenticator.isLoggedIn, notificationController.GetNotification)
-notificationRouter.post('/get', authenticator.isLoggedIn, notificationController.GetAllNotifications)
-notificationRouter.post('/read/:notificationId', authenticator.isLoggedIn, notificationController.MarkNotificationAsRead)
-notificationRouter.post('/read', authenticator.isLoggedIn, notificationController.MarkAllAsRead)
+notificationRouter.get('/get/:notificationId', authenticator.isLoggedIn, notificationController.GetNotification)
+notificationRouter.get('/get', authenticator.isLoggedIn, notificationController.GetAllNotifications)
+notificationRouter.patch('/read/:notificationId', authenticator.isLoggedIn, notificationController.MarkNotificationAsRead)
+notificationRouter.patch('/read', authenticator.isLoggedIn, notificationController.MarkAllAsRead)

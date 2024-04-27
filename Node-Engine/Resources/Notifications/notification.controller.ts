@@ -5,7 +5,7 @@ export class NotificationController {
     public async MarkNotificationAsRead (req: Request, res: Response) {
         try {
             const { notificationId } = req.params
-            const notification = await Notification.findOne({ notificationId: notificationId })
+            const notification = await Notification.findOne({ _id: notificationId })
             if (!notification) {
                 return res.status(404).json({
                     status: 404,
@@ -29,7 +29,7 @@ export class NotificationController {
     public async MarkAllAsRead (req: any, res: Response) {
         try {
             const { userId } = req.user
-            const notifications = await Notification.find({ userId: userId })
+            const notifications = await Notification.find({ user: userId })
             if (!notifications || notifications.length === 0) {
                 return res.status(404).json({
                     status: 404,
@@ -55,7 +55,7 @@ export class NotificationController {
     public async GetNotification (req: Request, res: Response) {
         try {
             const { notificationId } = req.params
-            const notification = await Notification.findOne({ notificationId: notificationId })
+            const notification = await Notification.findOne({ _id: notificationId })
             if (!notification) {
                 return res.status(404).json({
                     status: 404,
